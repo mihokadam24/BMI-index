@@ -2,6 +2,20 @@ import java.util.Scanner;
 
 public class Main {
 
+    // főprogram
+    public static void main(String[] args) {
+        output("BMI index kiszámoló");
+        Scanner inputInstance = new Scanner(System.in);
+        float height = input("Kérem a magasságot (cm): ", inputInstance);
+        float mass = input("Kérem a tömeget (kg): ", inputInstance);
+        float bmi = calculate(height, mass);
+        //output("A BMI index értéke: " + bmi);
+        String myBmiString = "A BMI index értéke: %.1f";
+        String resultBmiString = String.format(myBmiString, bmi);
+        output(resultBmiString);
+        output(evaluate(bmi));
+    }
+
     // Számérték beolvasása a billentyűzetről, hibakezeléssel
     public static float input(String message, Scanner io) {
         String internalDataString;
@@ -55,17 +69,4 @@ public class Main {
         return result;
     }
 
-    // főprogram
-    public static void main(String[] args) {
-        output("BMI index kiszámoló");
-        Scanner inputInstance = new Scanner(System.in);
-        float height = input("Kérem a magasságot (cm): ", inputInstance);
-        float mass = input("Kérem a tömeget (kg): ", inputInstance);
-        float bmi = calculate(height, mass);
-        //output("A BMI index értéke: " + bmi);
-        String myBmiString = "A BMI index értéke: %.1f";
-        String resultBmiString = String.format(myBmiString, bmi);
-        output(resultBmiString);
-        output(evaluate(bmi));
-    }
 }
